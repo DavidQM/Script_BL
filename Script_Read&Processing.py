@@ -9,6 +9,10 @@ import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 import zero_crossing as zerocr
 
+d=0.51# profundidad total a la que se instala el equipo
+zp=0.135791
+
+
 # Datos en dBares
 RBR_Caso_1 = np.loadtxt("RBR_burst_4_Caso_1.txt",skiprows = 1) 
 RBR_Caso_2 = np.loadtxt("RBR_burst_5_Caso_2.txt",skiprows = 1) 
@@ -44,8 +48,8 @@ BlueLog_Caso_6_dBares= ajust+ BlueLog_Caso_6_dBares
 
 
 #Linea de tiempo para graficar (eje temporal x=tiempo)
-#X = np.linspace(0,341.3,2048, endpoint=True)
-X = np.linspace(0,2048,2048, endpoint=True)
+X = np.linspace(0,341.3,2048, endpoint=True)
+#X = np.linspace(0,2048,2048, endpoint=True)
 
 #graficas 1
 plt.figure(1)
@@ -82,4 +86,6 @@ plt.show()
 
 mean = np.mean(RBR_Caso_6) #sacamos la media de la serie de datos
 serie = RBR_Caso_6-mean  # Restamos la media de la misma serie y con ello normalizacmos la serie
-print zerocr.zero_crossing(X,serie)
+print zerocr.zero_crossing(X,serie,d,zp)
+
+

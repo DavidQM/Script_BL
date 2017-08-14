@@ -17,7 +17,7 @@ import os, sys
 
 #  Funcion "zero_crossing"
 # -------------------------
-def zero_crossing(t, x):
+def zero_crossing(t, x, d, zp):
     # Calculos de los puntos
     # ----------------------
     # Re-muestro del vector
@@ -38,7 +38,12 @@ def zero_crossing(t, x):
     
     # Calculos de los parametros
     # --------------------------
-    H0 = np.sort(H)
+    #H0 = np.sort(H)#daniel santiago
+    f=1.0/T
+    K=TransFun.wavenumber(f,d,"hunt")
+    Kp=TransFun.transfer_funcion(K,d,zp)
+    Hc=H*Kp;
+    H0 = np.sort(Hc)#victor & david 14 de agosto 2016
     Hz = H0[2*len(H)/3:].mean()
 
     Tz = np.mean(T)
