@@ -80,6 +80,6 @@ plt.legend(handles=[blue_line,green_line])
 #imprimimos las graficas
 plt.show()
 
-mean = np.mean(RBR_Caso_6)
-serie = RBR_Caso_6-mean
-zerocr.zero_crossing(X,serie)
+mean = np.mean(RBR_Caso_6) #sacamos la media de la serie de datos
+serie = RBR_Caso_6-mean  # Restamos la media de la misma serie y con ello normalizacmos la serie
+print zerocr.zero_crossing(X,serie)

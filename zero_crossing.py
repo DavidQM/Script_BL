@@ -12,6 +12,7 @@
 import numpy as np
 import matplotlib.pylab as plb
 from pylab import *
+import transfer_funcion as TransFun
 import os, sys
 
 #  Funcion "zero_crossing"
